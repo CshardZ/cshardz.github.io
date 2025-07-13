@@ -9,6 +9,15 @@
 }
 
 body {
-    background-color: #fafafa;
+    background-color: #f9f9f9;
     font-family: "Outfit", sans-serif;
-}   
+}
+
+.visible {
+    width: 250px;
+    transition: 1s;
+}
+
+.hidden {
+    width: 50px;
+}
