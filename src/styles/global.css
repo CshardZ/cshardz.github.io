@@ -3,7 +3,6 @@
 
 
 * {
-    margin: 0;
     box-sizing: border-box;
 }
 
@@ -19,4 +18,8 @@ body {
 
 .hidden {
     width: 50px;
+}
+
+.custom-font {
+    font-family: Tahoma;
 }

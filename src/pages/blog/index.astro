@@ -1,16 +1,44 @@
 ---
 import MainContentLayout from "../../layouts/MainContentLayout.astro";
 import { getCollection } from 'astro:content';
+
 const posts = await getCollection('blog');
+
+// Group posts by year
+const groupedByYear = posts.reduce<Record<string, (typeof posts[number] & { date: Date })[]>>((acc, post) => {
+  const date = new Date(post.data.pubDate);
+  const year = date.getFullYear().toString();
+
+  if (!acc[year]) acc[year] = [];
+  acc[year].push({ ...post, date });
+  return acc;
+}, {});
+
+// Prepare renderable structure
+const years = Object.entries(groupedByYear).sort((a, b) => Number(b[0]) - Number(a[0]));
 ---
 
 <MainContentLayout>
-<ul>
-  {posts.map(post => (
-    <li>
-      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-      <small> — {post.data.pubDate}</small>
-    </li>
+  {years.map(([year, posts]) => (
+    <div class="custom-font">
+      <p class="text-3xl tracking-widest mb-2">{year}</p>
+      <ul class="ml-10 mb-10 space-y-1">
+        {posts
+          .sort((a, b) => b.date.getTime() - a.date.getTime())
+          .map(post => {
+            const day = String(post.date.getDate()).padStart(2, '0');
+            const month = post.date.toLocaleString('default', { month: 'long' });
+            return (
+              <li class="flex gap-3 justify-left items-center">
+                <div class="text-md  tracking-[1px]">
+                  {day}&nbsp;&nbsp;{month}</div> 
+                <div class="w-[8px] h-[8px] rounded-full bg-gray-200">
+                </div>
+                <a class="text-xl text-blue-400 hover:text-red-400 tracking-[3px]" href={`/blog/${post.slug}`}>{post.data.title}</a>
+              </li>
+            );
+          })}
+      </ul>
+    </div>
   ))}
-</ul>
 </MainContentLayout>
