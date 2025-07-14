@@ -1,9 +1,16 @@
 ---
 import MainContentLayout from "../../layouts/MainContentLayout.astro";
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
 ---
 
 <MainContentLayout>
-  <div class="p-6 overflow-y-auto">
-    All Blog lIst
-  </div>
+<ul>
+  {posts.map(post => (
+    <li>
+      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+      <small> — {post.data.pubDate}</small>
+    </li>
+  ))}
+</ul>
 </MainContentLayout>

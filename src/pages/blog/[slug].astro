@@ -1,0 +1,37 @@
+---
+import MainContentLayout from "../../layouts/MainContentLayout.astro";
+import { getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
+
+// 1. Load slug from route
+const { slug } = Astro.params;
+
+if (!slug) {
+  throw new Error('Missing slug param');
+}
+
+// 2. Fetch the entry by slug
+const post = await getEntry('blog', slug);
+
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+
+// 3. Render content
+const { Content } = await post.render();
+const { data } = post;
+
+// 4. Required for dynamic routes
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+---
+
+<MainContentLayout>
+  <h1>{data.title}</h1>
+  <p><small>{data.pubDate}</small></p>
+  <Content />
+</MainContentLayout>

@@ -14,7 +14,6 @@ body {
 }
 
 .visible {
-    width: 250px;
     transition: 1s;
 }
 
