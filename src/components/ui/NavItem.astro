@@ -1,0 +1,13 @@
+---
+const isActive = Astro.url.pathname === Astro.props.link;
+---
+
+<li class={`rounded-md transition-all duration-200 
+    ${isActive ? 'bg-[#303030] text-white shadow-lg' : 'bg-[#1d1d1d] text-gray-400 hover:bg-[#303030] hover:shadow-lg'}`}>
+    <a href={Astro.props.link} class="p-3 flex gap-5 tracking-wide">
+        <span>
+            <img class="w-[20px] h-[20px]" src={Astro.props.icon} alt="">
+        </span>
+        {Astro.props.name}
+    </a>
+</li>
