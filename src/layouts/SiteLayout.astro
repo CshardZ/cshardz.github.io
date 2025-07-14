@@ -1,5 +1,4 @@
 ---
-import MainContentLayout from "./MainContentLayout.astro"
 import SidebarLeft from "../components/SidebarLeft.astro"
 import SidebarRight from "../components/SidebarRight.astro"
 ---
@@ -15,7 +14,7 @@ import SidebarRight from "../components/SidebarRight.astro"
 <body>
     <div id="root" class="h-screen w-screen max-h-screen max-w-screen grid grid-cols-[1fr_4fr_auto]">
         <SidebarLeft />
-        <MainContentLayout />
+        <slot /> <! -- For Main Content -->
         <SidebarRight />
     </div>
 </body>
