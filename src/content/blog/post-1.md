@@ -46,7 +46,7 @@ tags: ["astro", "blogging", "learning in public"]
 `Inline code`
 
 ```js
-// Code block
+// Code blockCode blockCode blockCode blockCode blockCode blockCode blockCode blockCode blockCode blockCode blockCode blockCode blockCode blockCode blockCode block
 function greet(name) {
   return `Hello, ${name}`;
 }
