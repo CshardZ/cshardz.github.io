@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
 
 
@@ -13,13 +14,69 @@ body {
 }
 
 .visible {
+    width: 250px;
     transition: 1s;
 }
 
-.hidden {
+.shrink {
     width: 50px;
 }
 
 .custom-font {
-    font-family: Tahoma;
+  font-family: "Titillium Web", sans-serif;
+}
+
+
+/* Styling Markdown Elements */
+
+#single-blog-page {
+    h1 { font-size: 2rem;}
+    h2 { font-size: 1.8rem;}
+    h3 { font-size: 1.6rem;}
+    h4 { font-size: 1.4rem;}
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    hr {
+        background-color: gray !important; 
+        width: 100px;
+        height: 2px;
+        border-radius: 10px;
+        padding: 0;
+        border: none;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+    ol {
+        list-style-type: decimal;
+    }
+
+    pre {
+        padding: 1em !important;
+        background: #111 !important;
+        border: none;
+        border-radius: 5px;
+        box-shadow: -1px 1px 5px black;
+        :focus {
+            border: none;
+        }
+    }
+
+
+
+    h1,h2,h3,h4,pre {
+        margin: 1rem 0;
+    }
+    hr {
+        margin: 2rem auto;
+    }
+    ul,ol {
+        margin-top: 1rem;
+        margin-left: 2rem;
+    }
+
 }

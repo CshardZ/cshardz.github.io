@@ -34,7 +34,7 @@ const years = Object.entries(groupedByYear).sort((a, b) => Number(b[0]) - Number
                   {day}&nbsp;&nbsp;{month}</div> 
                 <div class="w-[8px] h-[8px] rounded-full bg-gray-200">
                 </div>
-                <a class="text-xl text-blue-400 hover:text-red-400 tracking-[3px]" href={`/blog/${post.slug}`}>{post.data.title}</a>
+                <a class="text-lg text-blue-400 hover:text-red-400 tracking-[2px]" href={`/blog/${post.slug}`}>{post.data.title}</a>
               </li>
             );
           })}

@@ -31,7 +31,9 @@ export async function getStaticPaths() {
 ---
 
 <MainContentLayout>
-  <h1>{data.title}</h1>
-  <p><small>{data.pubDate}</small></p>
-  <Content />
+  <div id="single-blog-page">
+    <h1>{data.title}</h1>
+    <p><small>{data.pubDate}</small></p>
+    <Content />
+  </div>
 </MainContentLayout>
