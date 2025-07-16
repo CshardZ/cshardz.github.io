@@ -13,10 +13,12 @@ import "../styles/global.css"
     <title>Vivek@CshardZ@Github</title>
 </head>
 <body>
-    <div id="root" class="h-screen w-screen max-h-screen max-w-screen flex flex-row">
+    <div id="root" class="h-screen w-screen max-h-screen max-w-screen overflow-hidden flex flex-col md:flex-row">
         <SidebarLeft />
-         <! -- For Main Content -->
-         <slot />
+         <!-- For Main Content -->
+         <div class="custom-scrollbar-hide px-8 py-6 overflow-y-auto flex-1">
+            <slot />
+        </div>
         <SidebarRight />
     </div>
 </body>

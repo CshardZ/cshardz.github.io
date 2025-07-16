@@ -1,5 +1,5 @@
 ---
-title: 'Inside India'
+title: 'Installing Python Virtual Environment For Isolation'
 pubDate: 2020-07-01
 description: 'This is the first post of my new Astro blog.'
 author: 'Astro Learner'

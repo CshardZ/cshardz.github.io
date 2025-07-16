@@ -75,9 +75,11 @@ body {
         margin: 1rem 0;
         color: #b5b5b5;
     }
+
     hr {
         margin: 3rem auto;
     }
+
     ul,ol {
         margin-top: 1rem;
         margin-left: 2rem;
@@ -103,6 +105,18 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #666;
 }
+
+@media (max-width: 639px) {
+  .custom-scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+}
+
 
 .title-divider {
     margin-top: 1rem;

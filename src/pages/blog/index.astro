@@ -22,7 +22,7 @@ const years = Object.entries(groupedByYear).sort((a, b) => Number(b[0]) - Number
   {years.map(([year, posts]) => (
     <div class="custom-font">
       <p class="text-3xl tracking-widest mb-2">{year}</p>
-      <ul class="ml-10 mb-10 space-y-1">
+      <ul class="ml-1 mb-2 md:ml-10 md:mb-10 space-y-1">
         {posts
           .sort((a, b) => b.date.getTime() - a.date.getTime())
           .map(post => {
@@ -32,9 +32,9 @@ const years = Object.entries(groupedByYear).sort((a, b) => Number(b[0]) - Number
               <li class="flex gap-3 justify-left items-center">
                 <div class="text-md  tracking-[1px]">
                   {day}&nbsp;&nbsp;{month}</div> 
-                <div class="w-[8px] h-[8px] rounded-full bg-gray-200">
+                <div class="w-[6px] h-[6px] md:w-[8px] md:h-[8px] rounded-full bg-gray-200">
                 </div>
-                <a class="text-lg text-blue-400 hover:text-red-400 tracking-[2px]" href={`/blog/${post.slug}`}>{post.data.title}</a>
+                <a class="text-sm md:text-lg text-blue-400 hover:text-red-400 tracking-[2px]" href={`/blog/${post.slug}`}>{post.data.title}</a>
               </li>
             );
           })}
