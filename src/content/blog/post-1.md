@@ -1,5 +1,5 @@
 ---
-title: 'My First Blog Post'
+title: 'Setting up Python Virtual Environment for Isolation refer this blog'
 pubDate: 2022-07-11
 description: 'This is the first post of my new Astro blog.'
 author: 'Astro Learner'

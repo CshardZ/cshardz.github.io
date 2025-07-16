@@ -28,12 +28,30 @@ export async function getStaticPaths() {
     params: { slug: post.slug },
   }));
 }
+
+const dateObj = new Date(data.pubDate);
+const formattedDate = dateObj.toLocaleDateString('en-IN', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+const formattedTime = dateObj.toLocaleTimeString('en-IN', {
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: true,
+});
+
+const formattedTimeStamp = `Posted: ${formattedDate} • ${formattedTime} • Vivek Nayak`;
 ---
+
 
 <MainContentLayout>
   <div id="single-blog-page">
-    <h1>{data.title}</h1>
-    <p><small>{data.pubDate}</small></p>
+    <div>
+      <h3 class="blog-title">{data.title}</h3>
+      <p class="text-gray-500 font-semibold"><small>{formattedTimeStamp}</small></p>
+      <div class="title-divider">
+    </div>
     <Content />
   </div>
 </MainContentLayout>
