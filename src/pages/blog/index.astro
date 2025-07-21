@@ -30,9 +30,9 @@ const years = Object.entries(groupedByYear).sort((a, b) => Number(b[0]) - Number
             const month = post.date.toLocaleString('default', { month: 'long' });
             return (
               <li class="flex gap-3 justify-left items-center">
-                <div class="text-md  tracking-[1px]">
+                <div class="text-md tracking-[1px]">
                   {day}&nbsp;&nbsp;{month}</div> 
-                <div class="w-[6px] h-[6px] md:w-[8px] md:h-[8px] rounded-full bg-gray-200">
+                <div class="min-w-[6px] min-h-[6px] md:w-[8px] md:h-[8px] rounded-full bg-gray-200">
                 </div>
                 <a class="text-sm md:text-lg text-blue-400 hover:text-red-400 tracking-[2px]" href={`/blog/${post.slug}`}>{post.data.title}</a>
               </li>
